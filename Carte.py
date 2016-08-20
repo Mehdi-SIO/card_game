@@ -9,19 +9,39 @@ class Carte:
         if coul < 0 or coul > 3:
             print("Erreur: Le code couleur d'une carte est compris entre 0 et 3")
             exit(1)
-        self.valeur = val
-        self.couleur = coul
+        self.__valeur = val
+        self.__couleur = coul
 
     def __str__(self):
-        return str(Carte.valeurs[self.valeur]) + " de " + Carte.couleurs[self.couleur]
-    
+        return str(Carte.valeurs[self.__valeur]) + " de " + Carte.couleurs[self.__couleur]
+
     def affiche_ascii(self):
-        nom = str(Carte.valeurs[self.valeur]) + " de " + Carte.couleurs[self.couleur]
+        nom = str(Carte.valeurs[self.__valeur]) + " de " + Carte.couleurs[self.__couleur]
         taille = len(nom) + 2
         print("/", "-" * taille, "\\", sep="")
         print("|", "-" * taille, "|", sep="")
         print("|", nom,  "|")
         print("|", "-" * taille, "|", sep="")
         print("\\", "-" * taille, "/", sep="")
+
+    def __getValeur(self):
+        print("Passage dans getValeur")
+        return self.__valeur
+
+    def __setValeur(self, val):
+        print("Passage dans setValeur")
+        self.__valeur = val
+
+    valeur = property(__getValeur, __setValeur)
+
+    def __getCouleur(self):
+        print("Passage dans getCouleur")
+        return self.__couleur
+
+    def __setCouleur(self, coul):
+        print("Passage dans setCouleur")
+        self.__couleur = coul
+
+    couleur = property(__getCouleur, __setCouleur)
 
 

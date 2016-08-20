@@ -1,12 +1,7 @@
-from Carte import Carte
+from JeuCartes import JeuCartes
 
 if __name__ == "__main__":
-
-    c = Carte(12, 2)
-    c2 = Carte(14, 3)
-
-    print("Première carte:")
-    print(c)
-
-    print("\nDeuxième carte:")
-    c2.affiche_ascii()
+    j = JeuCartes()
+    j.melanger()
+    print("On tire la première carte: ")
+    print(j.tirer())
